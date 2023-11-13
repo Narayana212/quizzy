@@ -32,7 +32,7 @@ const DetailsDialog = (props: Props) => {
                 <Github className="w-5 h-5" />
                 <Link
                   className="ml-1 underline"
-                  href="https://github.com/elliott-chong/Narayana212"
+                  href="https://github.com/Narayana212"
                   target="_blank"
                 >
                   GitHub
