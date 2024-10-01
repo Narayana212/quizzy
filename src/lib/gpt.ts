@@ -9,6 +9,19 @@ interface OutputFormat {
   [key: string]: string | string[] | OutputFormat;
 }
 
+/**
+ * Generates a structured output based on given prompts and format specifications using OpenAI's GPT model.
+ * @param {string} system_prompt - The initial prompt to set the context for the AI.
+ * @param {string | string[]} user_prompt - The user's input prompt(s).
+ * @param {OutputFormat} output_format - The desired format for the output.
+ * @param {string} [default_category=""] - The default category to use if GPT can't identify one.
+ * @param {boolean} [output_value_only=false] - If true, returns only the values of the output.
+ * @param {string} [model="gpt-3.5-turbo"] - The GPT model to use.
+ * @param {number} [temperature=1] - The randomness of the model's output.
+ * @param {number} [num_tries=3] - The number of attempts to generate valid output.
+ * @param {boolean} [verbose=false] - If true, logs detailed information about the process.
+ * @returns {Promise<Array<{question: string, answer: string}>>} An array of objects containing questions and answers.
+ */
 export async function strict_output(
   system_prompt: string,
   user_prompt: string | string[],
