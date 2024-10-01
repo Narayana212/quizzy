@@ -8,6 +8,14 @@ import { cn } from "@/lib/utils"
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
+/**
+ * A custom navigation menu component that wraps NavigationMenuPrimitive.Root
+ * @param {Object} props - The component props
+ * @param {string} props.className - Additional CSS classes to apply to the root element
+ * @param {React.ReactNode} props.children - The child elements to render within the navigation menu
+ * @param {React.Ref} ref - A ref to be forwarded to the underlying NavigationMenuPrimitive.Root component
+ * @returns {JSX.Element} A NavigationMenuPrimitive.Root component with added styling and a NavigationMenuViewport
+ */
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
@@ -26,6 +34,13 @@ NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
 const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>
+/**
+ * Renders a navigation menu list component with customizable styling.
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Additional CSS class names to apply to the list.
+ * @param {React.Ref} ref - Ref object for the navigation menu list.
+ * @returns {React.ReactElement} A styled navigation menu list component.
+ */
 >(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.List
     ref={ref}
@@ -47,6 +62,14 @@ const navigationMenuTriggerStyle = cva(
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
+/**
+ * Renders a navigation menu trigger component with a chevron icon
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Additional CSS classes to apply to the trigger
+ * @param {React.ReactNode} props.children - The content to display within the trigger
+ * @param {React.Ref} ref - The ref to forward to the underlying Trigger component
+ * @returns {JSX.Element} A NavigationMenuPrimitive.Trigger component with styled content and icon
+ */
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
@@ -65,7 +88,16 @@ NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
 const NavigationMenuContent = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
->(({ className, ...props }, ref) => (
+```
+/**
+ * A React component that renders a NavigationMenuPrimitive.Content with additional styling and animation properties.
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} [props.className] - Additional CSS class names to apply to the component.
+ * @param {React.Ref} ref - A ref object to access the underlying DOM element.
+ * @returns {React.ReactElement} A styled and animated NavigationMenuPrimitive.Content component.
+ */
+
+```>(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
@@ -82,6 +114,13 @@ const NavigationMenuLink = NavigationMenuPrimitive.Link
 const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
+/**
+ * Renders a custom viewport component for a navigation menu
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Additional CSS class names for styling
+ * @param {React.Ref} ref - Ref object for the viewport element
+ * @returns {React.Element} A div containing the NavigationMenuPrimitive.Viewport
+ */
 >(({ className, ...props }, ref) => (
   <div className={cn("absolute left-0 top-full flex justify-center")}>
     <NavigationMenuPrimitive.Viewport
@@ -93,6 +132,13 @@ const NavigationMenuViewport = React.forwardRef<
       {...props}
     />
   </div>
+/**
+ * Renders a custom NavigationMenu indicator component with animation and styling
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Additional CSS class names for the indicator
+ * @param {React.Ref} ref - Ref object for the indicator element
+ * @returns {JSX.Element} A NavigationMenuPrimitive.Indicator component with custom styling
+ */
 ))
 NavigationMenuViewport.displayName =
   NavigationMenuPrimitive.Viewport.displayName

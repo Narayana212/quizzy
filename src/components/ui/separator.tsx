@@ -9,6 +9,17 @@ const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
 >(
+  ```
+  /**
+   * Creates a separator component with customizable orientation and styling
+   * @param {Object} props - The component props
+   * @param {string} props.className - Additional CSS class names
+   * @param {string} [props.orientation="horizontal"] - The orientation of the separator ("horizontal" or "vertical")
+   * @param {boolean} [props.decorative=true] - Whether the separator is decorative or semantic
+   * @param {React.Ref} ref - The ref to be forwarded to the root element
+   * @returns {React.ReactElement} A separator component
+   */
+  ```
   (
     { className, orientation = "horizontal", decorative = true, ...props },
     ref

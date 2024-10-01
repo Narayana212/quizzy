@@ -10,6 +10,13 @@ const ToastProvider = ToastPrimitives.Provider;
 const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+/**
+ * Renders a customizable viewport for toast notifications
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Additional CSS class names to apply to the viewport
+ * @param {React.Ref} ref - Ref object for the viewport element
+ * @returns {React.ReactElement} A React component representing the toast viewport
+ */
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Viewport
     ref={ref}
@@ -43,6 +50,14 @@ const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
+/**
+ * Creates a customizable Toast component with variant styling
+ * @param {Object} props - The component props
+ * @param {string} props.className - Additional CSS class names for the Toast
+ * @param {string} props.variant - The variant style to apply to the Toast
+ * @param {React.Ref} ref - The ref to be forwarded to the underlying Toast primitive
+ * @returns {React.ReactElement} A styled Toast component
+ */
 >(({ className, variant, ...props }, ref) => {
   return (
     <ToastPrimitives.Root
@@ -57,6 +72,13 @@ Toast.displayName = ToastPrimitives.Root.displayName;
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+/**
+ * Renders a customizable action button for a Toast component
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Additional CSS class names for styling
+ * @param {React.Ref} ref - Ref object for the button element
+ * @returns {React.ReactElement} A styled action button for the Toast component
+ */
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Action
     ref={ref}
@@ -65,6 +87,13 @@ const ToastAction = React.forwardRef<
       className
     )}
     {...props}
+  /**
+   * Renders a customizable close button component for a toast notification.
+   * @param {Object} props - The component props.
+   * @param {string} [props.className] - Additional CSS classes to apply to the close button.
+   * @param {React.Ref} ref - The ref to be forwarded to the underlying ToastPrimitives.Close component.
+   * @returns {React.ReactElement} A ToastPrimitives.Close component with styling and icon.
+   */
   />
 ));
 ToastAction.displayName = ToastPrimitives.Action.displayName;
@@ -90,6 +119,22 @@ ToastClose.displayName = ToastPrimitives.Close.displayName;
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+/**
+ * A React component that renders a toast title using Radix UI's Toast Primitive.
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Additional CSS class names to apply to the title.
+ * @param {React.Ref} ref - A ref to be forwarded to the underlying title element.
+ ```
+ /**
+  * A React component that renders a description for a toast notification.
+  * @param {Object} props - The component props.
+  * @param {string} [props.className] - Additional CSS class names to apply to the description.
+  * @param {React.Ref} ref - A ref to be forwarded to the underlying Description component.
+  * @returns {React.ReactElement} A ToastPrimitives.Description component with applied styles and props.
+  */
+ ```
+ * @returns {React.ReactElement} A styled toast title component.
+ */
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}

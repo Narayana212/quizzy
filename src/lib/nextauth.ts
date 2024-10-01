@@ -35,11 +35,24 @@ export const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
+    /**
+     * Asynchronously retrieves and updates a JWT token with user information
+     * @param {Object} options - The options object
+     * @param {Object} options.token - The JWT token object containing user information
+     * @returns {Object} The updated token object with user ID if found in the database
+     */
     jwt: async ({ token }) => {
       const db_user = await prisma.user.findFirst({
         where: {
           email: token?.email,
         },
+      /**
+       * Updates the session object with user information from the provided token
+       * @param {Object} options - The options object containing session and token
+       * @param {Object} options.session - The current session object
+       * @param {Object} options.token - The token object containing user information
+       * @returns {Object} The updated session object
+       */
       });
       if (db_user) {
         token.id = db_user.id;
@@ -65,6 +78,11 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
-export const getAuthSession = () => {
+```
+/**
+ * Retrieves the authenticated session using server-side authentication.
+ * @returns {Promise<Session | null>} A promise that resolves to the authenticated session object if available, or null if no session exists.
+ */
+```export const getAuthSession = () => {
   return getServerSession(authOptions);
 };
